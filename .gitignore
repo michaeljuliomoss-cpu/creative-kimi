@@ -1,0 +1,4 @@
+.vercel
+*.bak
+node_modules
+.git

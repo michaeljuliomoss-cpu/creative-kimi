@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daybreak Books — Brooklyn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --parchment: #F3E8D4;
+  --leather: #8B6F4B;
+  --inkwell: #1C1814;
+  --vellum: #E4D4BC;
+  --sepia: #4A3A2C;
+  --faded-rule: #D8C8B2;
+  --header-h: 64px;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--inkwell);
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  min-height: 100svh;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  height: var(--header-h);
+  background: var(--parchment);
+  border-bottom: 1px solid var(--faded-rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 0 1.5rem;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--inkwell);
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.visit-link {
+  display: none;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.placeholder {
+  width: 100%;
+  max-width: 480px;
+  height: 260px;
+  background: linear-gradient(160deg, var(--vellum), var(--faded-rule));
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.placeholder::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(243,232,212,0.6) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.book-stack {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.book {
+  height: 18px;
+  border-radius: 2px;
+  margin-top: -8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+
+.book-1 { width: 180px; background: var(--leather); }
+.book-2 { width: 160px; background: #A0845C; }
+.book-3 { width: 140px; background: var(--sepia); }
+.book-4 { width: 120px; background: var(--leather); }
+.book-5 { width: 100px; background: #6B5B4E; }
+
+.caption {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--sepia);
+  opacity: 0.7;
+  margin-bottom: 2.5rem;
+}
+
+.caption::before {
+  content: '';
+  display: block;
+  width: 40%;
+  height: 1px;
+  background: var(--faded-rule);
+  margin: 0 auto 0.75rem;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  color: var(--inkwell);
+  max-width: 640px;
+  margin: 0 auto 1rem;
+  animation: fadeUp 300ms ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.subhead {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--sepia);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--leather);
+  color: var(--parchment);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0.85rem 2.5rem;
+  border-radius: 3px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 1.5rem;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139,111,75,0.3);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--inkwell);
+  outline-offset: 3px;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--sepia);
+  opacity: 0.7;
+}
+
+footer {
+  font-size: 0.8125rem;
+  color: var(--sepia);
+  opacity: 0.6;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 3.75rem; }
+  .subhead { font-size: 1.2rem; }
+  .placeholder { height: 320px; }
+  .book-stack { width: 240px; }
+  .book-1 { width: 220px; }
+  .book-2 { width: 200px; }
+  .book-3 { width: 180px; }
+  .book-4 { width: 160px; }
+  .book-5 { width: 140px; }
+
+  header {
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  .visit-link {
+    display: block;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--leather);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+
+  .visit-link:hover { text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="wordmark">Daybreak Books</a>
+  <a href="mailto:hello@daybreakbooks.co?subject=Visiting%20Daybreak%20Books" class="visit-link">Visit Us</a>
+</header>
+
+<main class="hero">
+  <div class="placeholder">
+    <div class="book-stack">
+      <div class="book book-1"></div>
+      <div class="book book-2"></div>
+      <div class="book book-3"></div>
+      <div class="book book-4"></div>
+      <div class="book book-5"></div>
+    </div>
+  </div>
+
+  <p class="caption">Open 8am til it gets quiet.</p>
+
+  <h1>Daybreak Books &mdash; used paperbacks, slow mornings in Brooklyn.</h1>
+
+  <p class="subhead">Eight thousand books on wooden shelves, hand-priced. We buy store-credit Tuesday and Thursday. Open at 8, close whenever.</p>
+
+  <a href="mailto:hello@daybreakbooks.co?subject=Planning%20a%20visit%20to%20Daybreak%20Books" class="cta">Plan a Saturday visit</a>
+
+  <p class="tagline">We don't run a website. We run a shop.</p>
+</main>
+
+<footer>
+  Daybreak Books &middot; 271 Court St, Brooklyn &middot; hello@daybreakbooks.co
+</footer>
+
+</body>
+</html>
