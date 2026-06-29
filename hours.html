@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visit — Daybreak Books</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --parchment: #F3E8D4;
+  --leather: #8B6F4B;
+  --inkwell: #1C1814;
+  --vellum: #E4D4BC;
+  --sepia: #4A3A2C;
+  --faded-rule: #D8C8B2;
+  --header-h: 64px;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--inkwell);
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  min-height: 100svh;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  min-height: var(--header-h);
+  background: var(--parchment);
+  border-bottom: 1px solid var(--faded-rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  z-index: 10;
+  padding: 0.5rem 1.25rem;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--inkwell);
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+nav.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+nav.site-nav a {
+  text-decoration: none;
+  color: var(--sepia);
+  transition: color 0.2s ease;
+}
+
+nav.site-nav a:hover,
+nav.site-nav a:focus-visible {
+  color: var(--inkwell);
+  text-decoration: underline;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.page-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--sepia);
+  opacity: 0.7;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-label::before {
+  content: '';
+  display: block;
+  width: 40%;
+  height: 1px;
+  background: var(--faded-rule);
+  margin: 0 auto 0.75rem;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 1.15;
+  color: var(--inkwell);
+  text-align: center;
+  margin: 0 auto 1.5rem;
+  animation: fadeUp 300ms ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--inkwell);
+  margin: 2rem 0 0.75rem;
+}
+
+.info-block {
+  margin-bottom: 0.25rem;
+}
+
+.info-block p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--inkwell);
+  margin-bottom: 0.5rem;
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.5rem;
+}
+
+.hours-table tr {
+  border-bottom: 1px solid var(--faded-rule);
+}
+
+.hours-table td {
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--inkwell);
+}
+
+.hours-table td:first-child {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  width: 40%;
+  color: var(--inkwell);
+}
+
+.hours-table td:last-child {
+  text-align: right;
+  font-family: 'Crimson Pro', Georgia, serif;
+  color: var(--sepia);
+}
+
+.map-placeholder {
+  width: 100%;
+  max-width: 480px;
+  height: 200px;
+  margin: 2rem auto;
+  background: linear-gradient(160deg, var(--vellum), var(--faded-rule));
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: var(--leather);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(139,111,75,0.25), 0 0 0 8px rgba(139,111,75,0.1);
+}
+
+.map-placeholder::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--faded-rule);
+}
+
+.map-label {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sepia);
+  opacity: 0.6;
+}
+
+.address-block {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.address-block .shop-address {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--inkwell);
+}
+
+.address-block .shop-address a {
+  color: var(--leather);
+  text-decoration: none;
+}
+
+.address-block .shop-address a:hover {
+  text-decoration: underline;
+}
+
+.directions {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.directions li {
+  padding: 0.35rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--inkwell);
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.directions li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  background: var(--leather);
+  border-radius: 50%;
+}
+
+.note {
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--sepia);
+  line-height: 1.6;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--faded-rule);
+  margin-top: 1.25rem;
+}
+
+footer {
+  font-size: 0.8125rem;
+  color: var(--sepia);
+  opacity: 0.6;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--faded-rule);
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.75rem; }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  nav.site-nav {
+    gap: 1.75rem;
+    justify-content: flex-end;
+  }
+
+  main {
+    padding: 5rem 2rem 3rem;
+  }
+
+  .map-placeholder {
+    height: 260px;
+  }
+
+  .hours-table td {
+    padding: 0.75rem 1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="wordmark">Daybreak Books</a>
+  <nav class="site-nav">
+    <a href="browse.html">Browse</a>
+    <a href="about.html">About</a>
+    <a href="trade.html">Trade</a>
+    <a href="hours.html">Visit</a>
+  </nav>
+</header>
+
+<main>
+  <p class="page-label">Come see us</p>
+
+  <h1>Hours &amp; directions</h1>
+
+  <div class="address-block">
+    <p class="shop-address">271 Court Street, Brooklyn, NY 11231</p>
+  </div>
+
+  <div class="map-placeholder">
+    <span class="map-label">Court St</span>
+  </div>
+
+  <h2>Hours</h2>
+
+  <table class="hours-table">
+    <tr>
+      <td>Monday &ndash; Friday</td>
+      <td>8:00 &ndash; 7:00</td>
+    </tr>
+    <tr>
+      <td>Saturday</td>
+      <td>9:00 &ndash; 9:00</td>
+    </tr>
+    <tr>
+      <td>Sunday</td>
+      <td>10:00 &ndash; 5:00</td>
+    </tr>
+  </table>
+
+  <p class="note">We close early on Thanksgiving and Christmas Eve. Call ahead if you are travelling.</p>
+
+  <h2>Subway</h2>
+  <ul class="directions">
+    <li>F or G train to Carroll Street &mdash; two blocks east on President Street.</li>
+    <li>2 or 3 train to Bergen Street &mdash; six blocks south, about a ten-minute walk.</li>
+  </ul>
+
+  <h2>Accessibility</h2>
+  <p class="note">Ground-floor entrance, no step at the door. One small lip at the threshold. The aisles are wide enough for a wheelchair or a stroller, and the back room is clear. If you need help reaching a high shelf, ask at the counter &mdash; we keep a step stool and we do not mind.</p>
+</main>
+
+<footer>
+  Daybreak Books &middot; 271 Court St, Brooklyn &middot; hello@daybreakbooks.co
+</footer>
+
+</body>
+</html>

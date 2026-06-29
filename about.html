@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daybreak Books — Brooklyn</title>
+<title>About — Daybreak Books</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -78,61 +78,11 @@ nav.site-nav a:focus-visible {
   text-decoration: underline;
 }
 
-.hero {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1.5rem;
-  text-align: center;
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
 }
-
-.placeholder {
-  width: 100%;
-  max-width: 480px;
-  height: 260px;
-  background: linear-gradient(160deg, var(--vellum), var(--faded-rule));
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-
-.placeholder::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  left: -20%;
-  width: 140%;
-  height: 140%;
-  background: radial-gradient(ellipse at 30% 20%, rgba(243,232,212,0.6) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.book-stack {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-}
-
-.book {
-  height: 18px;
-  border-radius: 2px;
-  margin-top: -8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
-}
-
-.book-1 { width: 180px; background: var(--leather); }
-.book-2 { width: 160px; background: #A0845C; }
-.book-3 { width: 140px; background: var(--sepia); }
-.book-4 { width: 120px; background: var(--leather); }
-.book-5 { width: 100px; background: #6B5B4E; }
 
 .caption {
   font-size: 0.75rem;
@@ -140,7 +90,8 @@ nav.site-nav a:focus-visible {
   letter-spacing: 0.15em;
   color: var(--sepia);
   opacity: 0.7;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .caption::before {
@@ -155,11 +106,11 @@ nav.site-nav a:focus-visible {
 h1 {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   line-height: 1.15;
   color: var(--inkwell);
-  max-width: 640px;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.5rem;
+  text-align: center;
   animation: fadeUp 300ms ease-out;
 }
 
@@ -168,45 +119,41 @@ h1 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.subhead {
-  font-family: 'Crimson Pro', Georgia, serif;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: var(--sepia);
-  max-width: 520px;
-  margin: 0 auto 2rem;
-}
-
-.cta {
-  display: inline-block;
-  background: var(--leather);
-  color: var(--parchment);
+.lede {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  padding: 0.85rem 2.5rem;
-  border-radius: 3px;
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-bottom: 1.5rem;
-}
-
-.cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139,111,75,0.3);
-}
-
-.cta:focus-visible {
-  outline: 2px solid var(--inkwell);
-  outline-offset: 3px;
-}
-
-.tagline {
+  font-size: 1.35rem;
   font-style: italic;
-  font-size: 0.875rem;
+  line-height: 1.45;
   color: var(--sepia);
-  opacity: 0.7;
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+}
+
+.lede::before,
+.lede::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--faded-rule);
+  margin: 1rem auto;
+}
+
+p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--inkwell);
+  margin-bottom: 1.25rem;
+}
+
+.signoff {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--sepia);
+  margin-top: 2.5rem;
+  text-align: right;
 }
 
 footer {
@@ -215,18 +162,12 @@ footer {
   opacity: 0.6;
   text-align: center;
   padding: 2rem 1.5rem;
+  border-top: 1px solid var(--faded-rule);
+  margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
-  h1 { font-size: 3.75rem; }
-  .subhead { font-size: 1.2rem; }
-  .placeholder { height: 320px; }
-  .book-stack { width: 240px; }
-  .book-1 { width: 220px; }
-  .book-2 { width: 200px; }
-  .book-3 { width: 180px; }
-  .book-4 { width: 160px; }
-  .book-5 { width: 140px; }
+  h1 { font-size: 3rem; }
 
   header {
     flex-direction: row;
@@ -237,6 +178,10 @@ footer {
   nav.site-nav {
     gap: 1.75rem;
     justify-content: flex-end;
+  }
+
+  main {
+    padding: 5rem 2rem 3rem;
   }
 }
 </style>
@@ -253,26 +198,22 @@ footer {
   </nav>
 </header>
 
-<main class="hero">
-  <div class="placeholder">
-    <div class="book-stack">
-      <div class="book book-1"></div>
-      <div class="book book-2"></div>
-      <div class="book book-3"></div>
-      <div class="book book-4"></div>
-      <div class="book book-5"></div>
-    </div>
-  </div>
+<main>
+  <p class="caption">A shop in Carroll Gardens, since 2014</p>
 
-  <p class="caption">Open 8am til it gets quiet.</p>
+  <h1>Why a bookshop on Court Street of all places</h1>
 
-  <h1>Daybreak Books &mdash; used paperbacks, slow mornings in Brooklyn.</h1>
+  <p class="lede">We never set out to open a shop. We set out to keep a habit &mdash; the early-morning browse, the unjudgmental hour &mdash; from disappearing.</p>
 
-  <p class="subhead">Eight thousand books on wooden shelves, hand-priced. We buy store-credit Tuesday and Thursday. Open at 8, close whenever.</p>
+  <p>Daybreak started as a folding chair on the sidewalk. A small pile of paperbacks, a coffee mug for cash, and a hand-written sign that read <em>credit only</em>. People brought their finished reads down from the stoops around Carroll and Smith, and they took someone else's home in exchange. The chair became a corner of a friend&rsquo;s garage, and the garage became a lease on Court Street in the long winter of 2014.</p>
 
-  <a href="mailto:hello@daybreakbooks.co?subject=Planning%20a%20visit%20to%20Daybreak%20Books" class="cta">Plan a Saturday visit</a>
+  <p>Maya runs the floor most days. She trained as a librarian and reads the way other people drink coffee &mdash; constantly, indiscriminately, and without much concern for what anyone else is reading. Jonas does the buying on Tuesdays and Thursdays, and he is the reason the shelves lean a little heavier on translation and out-of-print poetry than a shop this size has any right to.</p>
 
-  <p class="tagline">We don't run a website. We run a shop.</p>
+  <p>We believe a bookshop is a kind of public room. We turn the lights on at eight, put the kettle on, and leave the door open. People come in to browse. People come in to warm up. People come in because Tuesday used to be the day their grandmother took them to the library. None of that is the business. All of it is the point.</p>
+
+  <p>Coffee is free, but only if you ask. The back room has a reading chair no one uses. The radiators tick.</p>
+
+  <p class="signoff">&mdash; Maya & Jonas</p>
 </main>
 
 <footer>

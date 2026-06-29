@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse — Daybreak Books</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --parchment: #F3E8D4;
+  --leather: #8B6F4B;
+  --inkwell: #1C1814;
+  --vellum: #E4D4BC;
+  --sepia: #4A3A2C;
+  --faded-rule: #D8C8B2;
+  --header-h: 64px;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--inkwell);
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  min-height: 100svh;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  min-height: var(--header-h);
+  background: var(--parchment);
+  border-bottom: 1px solid var(--faded-rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  z-index: 10;
+  padding: 0.5rem 1.25rem;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--inkwell);
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+nav.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+nav.site-nav a {
+  text-decoration: none;
+  color: var(--sepia);
+  transition: color 0.2s ease;
+}
+
+nav.site-nav a:hover,
+nav.site-nav a:focus-visible {
+  color: var(--inkwell);
+  text-decoration: underline;
+}
+
+main {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.page-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--sepia);
+  opacity: 0.7;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-label::before {
+  content: '';
+  display: block;
+  width: 40%;
+  height: 1px;
+  background: var(--faded-rule);
+  margin: 0 auto 0.75rem;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 1.15;
+  color: var(--inkwell);
+  text-align: center;
+  margin: 0 auto 1.25rem;
+  animation: fadeUp 300ms ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-intro {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--sepia);
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.category-card {
+  background: var(--vellum);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-placeholder {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(160deg, var(--vellum), var(--faded-rule));
+  position: relative;
+  overflow: hidden;
+}
+
+.card-placeholder::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(243,232,212,0.5) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.card-stack {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.card-book {
+  height: 12px;
+  border-radius: 2px;
+  margin-top: -5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card-book-1 { width: 130px; background: var(--leather); }
+.card-book-2 { width: 115px; background: #A0845C; }
+.card-book-3 { width: 100px; background: var(--sepia); }
+
+.category-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--inkwell);
+  padding: 0.75rem 1rem 0.35rem;
+}
+
+.category-desc {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--sepia);
+  padding: 0 1rem 1rem;
+}
+
+footer {
+  font-size: 0.8125rem;
+  color: var(--sepia);
+  opacity: 0.6;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--faded-rule);
+  margin-top: 2rem;
+}
+
+@media (min-width: 600px) {
+  .categories {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.75rem; }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  nav.site-nav {
+    gap: 1.75rem;
+    justify-content: flex-end;
+  }
+
+  main {
+    padding: 5rem 2rem 3rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="wordmark">Daybreak Books</a>
+  <nav class="site-nav">
+    <a href="browse.html">Browse</a>
+    <a href="about.html">About</a>
+    <a href="trade.html">Trade</a>
+    <a href="hours.html">Visit</a>
+  </nav>
+</header>
+
+<main>
+  <p class="page-label">What we keep on the shelves</p>
+
+  <h1>Browse our sections</h1>
+
+  <p class="page-intro">Eight thousand books, hand-picked, hand-priced, spread across a dozen rooms&rsquo; worth of shelving. Here is what you will find most of.</p>
+
+  <div class="categories">
+
+    <div class="category-card">
+      <div class="card-placeholder">
+        <div class="card-stack">
+          <div class="card-book card-book-1"></div>
+          <div class="card-book card-book-2"></div>
+          <div class="card-book card-book-3"></div>
+        </div>
+      </div>
+      <div class="category-title">Literature</div>
+      <div class="category-desc">Novels and short stories, mostly mid-century, with a good run of Faber &amp; Faber paperbacks and NYRB editions nobody else keeps in print.</div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-placeholder">
+        <div class="card-stack">
+          <div class="card-book card-book-1"></div>
+          <div class="card-book card-book-2"></div>
+          <div class="card-book card-book-3"></div>
+        </div>
+      </div>
+      <div class="category-title">Poetry</div>
+      <div class="category-desc">From Frank O&rsquo;Hara to Osip Mandelstam &mdash; a small but considered shelf, strong on Eastern European and New York School poets.</div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-placeholder">
+        <div class="card-stack">
+          <div class="card-book card-book-1"></div>
+          <div class="card-book card-book-2"></div>
+          <div class="card-book card-book-3"></div>
+        </div>
+      </div>
+      <div class="category-title">Cookbooks</div>
+      <div class="category-desc">Vintage Gourmet issues, spiral-bound community cookbooks, and the odd out-of-print Olney &mdash; the kind you actually cook from.</div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-placeholder">
+        <div class="card-stack">
+          <div class="card-book card-book-1"></div>
+          <div class="card-book card-book-2"></div>
+          <div class="card-book card-book-3"></div>
+        </div>
+      </div>
+      <div class="category-title">Translation</div>
+      <div class="category-desc">Works in English translation, with a bias toward small presses, neglected languages, and the kind of book you will not find at Barnes &amp; Noble.</div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-placeholder">
+        <div class="card-stack">
+          <div class="card-book card-book-1"></div>
+          <div class="card-book card-book-2"></div>
+          <div class="card-book card-book-3"></div>
+        </div>
+      </div>
+      <div class="category-title">NYRB Classics</div>
+      <div class="category-desc">The full backlist, give or take half a dozen. If NYRB printed it we have probably had a copy through the door at some point.</div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-placeholder">
+        <div class="card-stack">
+          <div class="card-book card-book-1"></div>
+          <div class="card-book card-book-2"></div>
+          <div class="card-book card-book-3"></div>
+        </div>
+      </div>
+      <div class="category-title">Used Paperbacks Under $5</div>
+      <div class="category-desc">The bin by the door. Everything under five dollars, all the time. Not curated, not alphabetized &mdash; just a pile of paperbacks in good faith.</div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Daybreak Books &middot; 271 Court St, Brooklyn &middot; hello@daybreakbooks.co
+</footer>
+
+</body>
+</html>

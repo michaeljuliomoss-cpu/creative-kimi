@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trade — Daybreak Books</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --parchment: #F3E8D4;
+  --leather: #8B6F4B;
+  --inkwell: #1C1814;
+  --vellum: #E4D4BC;
+  --sepia: #4A3A2C;
+  --faded-rule: #D8C8B2;
+  --header-h: 64px;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--inkwell);
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  min-height: 100svh;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  min-height: var(--header-h);
+  background: var(--parchment);
+  border-bottom: 1px solid var(--faded-rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  z-index: 10;
+  padding: 0.5rem 1.25rem;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--inkwell);
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+nav.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+nav.site-nav a {
+  text-decoration: none;
+  color: var(--sepia);
+  transition: color 0.2s ease;
+}
+
+nav.site-nav a:hover,
+nav.site-nav a:focus-visible {
+  color: var(--inkwell);
+  text-decoration: underline;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.page-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--sepia);
+  opacity: 0.7;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-label::before {
+  content: '';
+  display: block;
+  width: 40%;
+  height: 1px;
+  background: var(--faded-rule);
+  margin: 0 auto 0.75rem;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 1.15;
+  color: var(--inkwell);
+  text-align: center;
+  margin: 0 auto 1.5rem;
+  animation: fadeUp 300ms ease-out;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lede {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--sepia);
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0.75rem 0 0.75rem 2.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--inkwell);
+  border-bottom: 1px solid var(--faded-rule);
+}
+
+.steps li:last-child {
+  border-bottom: none;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--leather);
+  color: var(--parchment);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--inkwell);
+  margin: 2rem 0 0.75rem;
+}
+
+.policy-section {
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.policy-section h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--inkwell);
+  margin: 1.25rem 0 0.35rem;
+}
+
+.policy-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--sepia);
+  margin-bottom: 0.5rem;
+}
+
+.policy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 0.75rem 0;
+}
+
+.policy-box {
+  background: var(--vellum);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.policy-box h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--inkwell);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.policy-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.policy-box ul li {
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--sepia);
+  position: relative;
+  padding-left: 1rem;
+}
+
+.policy-box ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 4px;
+  height: 4px;
+  background: var(--leather);
+  border-radius: 50%;
+}
+
+footer {
+  font-size: 0.8125rem;
+  color: var(--sepia);
+  opacity: 0.6;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--faded-rule);
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.75rem; }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  nav.site-nav {
+    gap: 1.75rem;
+    justify-content: flex-end;
+  }
+
+  main {
+    padding: 5rem 2rem 3rem;
+  }
+
+  .steps li {
+    padding: 1rem 0 1rem 3rem;
+  }
+
+  .steps li::before {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.95rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="wordmark">Daybreak Books</a>
+  <nav class="site-nav">
+    <a href="browse.html">Browse</a>
+    <a href="about.html">About</a>
+    <a href="trade.html">Trade</a>
+    <a href="hours.html">Visit</a>
+  </nav>
+</header>
+
+<main>
+  <p class="page-label">Tuesdays and Thursdays</p>
+
+  <h1>Sell us your books</h1>
+
+  <p class="lede">We buy used books for store credit on Tuesdays and Thursdays. No appointments, no appointments needed. Here is how it works.</p>
+
+  <ol class="steps">
+    <li>Bring your books to the shop on a Tuesday or Thursday, any time between 8 AM and one hour before close. We buy year-round, rain or shine.</li>
+    <li>Leave them at the counter or fill out a drop-off slip if Jonas is already with another seller. We take a first look while you browse or sit with coffee.</li>
+    <li>Jonas reviews each title. We look for condition, scarcity, and whether it fits the shelves. If we do not need it, we will tell you straight &mdash; no hard feelings, and your books come home with you.</li>
+    <li>We offer store credit at a third of what we will sell the book for. A clean paperback we would price at $12 gets you $4 in credit. Hardcovers and scarce editions can go higher.</li>
+    <li>Credit is good forever. No expiration. We keep a paper ledger with your name and balance &mdash; no app, no account login. Spend it on anything in the shop.</li>
+  </ol>
+
+  <h2>What we take</h2>
+
+  <div class="policy-grid">
+    <div class="policy-box">
+      <h4>We accept</h4>
+      <ul>
+        <li>Literature and fiction in good condition</li>
+        <li>Poetry, especially out-of-print editions</li>
+        <li>Cookbooks from any decade</li>
+        <li>Works in translation</li>
+        <li>NYRB Classics and similar reprint series</li>
+        <li>Scholarly nonfiction and art monographs</li>
+      </ul>
+    </div>
+    <div class="policy-box">
+      <h4>We do not take</h4>
+      <ul>
+        <li>Textbooks, workbooks, or study guides</li>
+        <li>Mass-market genre paperbacks in poor condition</li>
+        <li>Magazines (except vintage Gourmet or New Yorker)</li>
+        <li>Damaged, musty, or water-stained books</li>
+        <li>Encyclopedias or reference sets from before 2000</li>
+        <li>Anything with underlining or highlighting throughout</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="note">Store credit only. We do not buy for cash. Credit is non-transferable and recorded by name. If you prefer to donate, we are happy to pass your books to the Carroll Gardens library sale.</p>
+</main>
+
+<footer>
+  Daybreak Books &middot; 271 Court St, Brooklyn &middot; hello@daybreakbooks.co
+</footer>
+
+</body>
+</html>
